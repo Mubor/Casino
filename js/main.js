@@ -1,12 +1,18 @@
 let cash = 500;
-let cashAfterGame = cash;
-let currentGameStage = "new";
+let tempCash = cash;
+let currentGameStage = "new"; //содержит информацию по текущей стадии игры ("new"-новая игра, "win"-победа, "lose"-проигрыш, "point" -поинт).
 let point;
 
+
+//Обработка нажатия кнопки 
 function clickHandler() {
+    debugger;
     let [cubeA, cubeB] = tossUp();
     let bet = document.getElementById("bet").value;
-    if(currentGameStage == "new") {
+    if(isNaN(bet) || bet < 1 || bet > cash) {
+        errorMessage();
+    }
+    else if(currentGameStage == "new") {
         primaryGameHandler(cubeA, cubeB, bet);
     }
     else if(currentGameStage == "point") {
@@ -14,7 +20,7 @@ function clickHandler() {
     }
     else {
         currentGameStage = "new";
-        cash = cashAfterGame;
+        cash = tempCash;
         baseMessage();
     }
 }

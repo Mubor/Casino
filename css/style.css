@@ -52,6 +52,10 @@ body {
     color: white;
 }
 
+.button:hover {
+    background-color: rgb(71, 71, 71);
+}
+
 .img {
     width: 15%;
 }

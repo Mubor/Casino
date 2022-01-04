@@ -1,3 +1,4 @@
+//Обработчик обычной игры
 function primaryGameHandler(cubeA, cubeB, bet) {
     let sum = cubeA + cubeB;
 
@@ -10,10 +11,11 @@ function primaryGameHandler(cubeA, cubeB, bet) {
     else {
         currentGameStage = "point";
         point = sum;
-        pointStartMessage(cubeA, cubeB,bet);
+        pointStartMessage(cubeA, cubeB, bet);
     }
 }
 
+//Обработчик игры при выпадaнии point
 function pointGameHandler(cubeA, cubeB, bet) {
     let sum = cubeA + cubeB;
 
@@ -28,14 +30,16 @@ function pointGameHandler(cubeA, cubeB, bet) {
     }
 }
 
+
+//Изменение переменных и обновление формы при победе или выиграше.
 function setWinStage(cubeA, cubeB, bet) {
     currentGameStage = "win";
-    cashAfterGame = cash + bet * 2;
+    tempCash = cash + bet * 2;
     winMessage(cubeA, cubeB, bet);
 }
 
 function setLoseStage(cubeA, cubeB, bet) {
     currentGameStage = "lose";
-    cashAfterGame = cash - bet;
+    tempCash = cash - bet;
     loseMessage(cubeA, cubeB, bet);
 }

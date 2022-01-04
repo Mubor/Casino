@@ -1,3 +1,4 @@
+//Обновление текста на странице
 function updateForm(walletMsg, gameMsg, buttonText, isFieldVisibile) {
     let field = document.getElementById("bet");
 

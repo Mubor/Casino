@@ -1,3 +1,4 @@
+// Текст формы при загрузке страницы и начала новой игры
 function baseMessage () {
     let wallet = `Ваш баланс: <span class="value">${cash}$</span>`;
     let msg = null;
@@ -6,6 +7,7 @@ function baseMessage () {
     updateForm(wallet, msg, buttonTxt, true);
 }
 
+//Текст формы при выиграше
 function winMessage (cubeA, cubeB, bet) {
     let wallet = `Ваш баланс: <span class="value">${cash}$</span>`;
     let msg = 
@@ -16,6 +18,7 @@ function winMessage (cubeA, cubeB, bet) {
     updateForm(wallet, msg, buttonTxt, false);
 }
 
+//Текст при проигрыше
 function loseMessage (cubeA, cubeB, bet) {
     let wallet = `Ваш баланс: <span class="value">${cash}$</span>`;
     let msg = 
@@ -25,6 +28,8 @@ function loseMessage (cubeA, cubeB, bet) {
 
     updateForm(wallet, msg, buttonTxt, false);
 }
+
+//Текст при выпадании поинта (один раз)
 function pointStartMessage (cubeA, cubeB, bet) {
     let wallet = `Ставка: <span class="value">${bet}$</span>`;
     let msg = 
@@ -37,6 +42,7 @@ function pointStartMessage (cubeA, cubeB, bet) {
     updateForm(wallet, msg, buttonTxt, false);
 }
 
+//Текст при поинт-игре
 function pointMessage (cubeA, cubeB, bet) {
     let wallet = `Ставка: <span class="value">${bet}$</span>`;
     let msg = 
@@ -46,5 +52,14 @@ function pointMessage (cubeA, cubeB, bet) {
     let buttonTxt = `Бросить еще раз`;
 
     updateForm(wallet, msg, buttonTxt, false);
+}
+
+function errorMessage() {
+    let wallet = `Ваш баланс: <span class="value">${cash}$</span>`;
+    let msg = 
+    `<p>Неверное значение!</p>`;
+    let buttonTxt = `Бросить кубики`;
+
+    updateForm(wallet, msg, buttonTxt, true);
 }
 
