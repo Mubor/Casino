@@ -1,5 +1,5 @@
 //Обновление текста на странице
-function updateForm(walletMsg, gameMsg, buttonText, isFieldVisibile) {
+function updateForm(messagesObj, isFieldVisibile) {
     let field = document.getElementById("bet");
 
     if(isFieldVisibile) {
@@ -10,7 +10,7 @@ function updateForm(walletMsg, gameMsg, buttonText, isFieldVisibile) {
     }
 
     field.innerHTML = "";
-    document.getElementById("wallet").innerHTML = walletMsg;
-    document.getElementById("game-msg").innerHTML = gameMsg;
-    document.getElementById("toss-button").innerHTML = buttonText;
+    document.getElementById("wallet").innerHTML = messagesObj.wallet;
+    document.getElementById("game-msg").innerHTML = messagesObj.msg;
+    document.getElementById("toss-button").innerHTML = messagesObj.button;
 }
