@@ -17,7 +17,7 @@ function primaryGameHandler(cubeA, cubeB) {
 
 // Обработчик игры при выпадaнии point
 // eslint-disable-next-line no-unused-vars
-function pointGameHandler(cubeA, cubeB) {
+function pointGameHandler(cubeA, cubeB, point) {
   const sum = cubeA + cubeB;
   let result;
 
@@ -32,3 +32,8 @@ function pointGameHandler(cubeA, cubeB) {
 
   return result;
 }
+
+export default {
+  primaryGameHandler,
+  pointGameHandler,
+};
