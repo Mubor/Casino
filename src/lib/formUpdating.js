@@ -1,6 +1,4 @@
-// Обновление текста на странице
-// eslint-disable-next-line no-unused-vars
-function updateForm(messagesObj, isFieldVisibile) {
+export default function updateForm(messagesObj, isFieldVisibile) {
   const field = document.getElementById('bet');
 
   if (isFieldVisibile) {

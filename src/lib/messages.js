@@ -1,5 +1,5 @@
 // Текст формы при загрузке страницы и начала новой игры
-function baseMessage() {
+function baseMessage(cash) {
   const walletTxt = `Ваш баланс: <span class="value">${cash}$</span>`;
   const messageTxt = null;
   const buttonTxt = 'Бросить кубики';
@@ -12,7 +12,7 @@ function baseMessage() {
 }
 
 // Текст формы при выиграше
-function winMessage(cubeA, cubeB, bet) {
+function winMessage(cubeA, cubeB, bet, cash) {
   const walletTxt = `Ваш баланс: <span class="value">${cash}$</span>`;
   const messageTxt = `<p>На кубиках: <span class="value">${cubeA}, ${cubeB}</span></p>
      <p>Вы выиграли, и получаете <span class="value">${bet * 2}$</span></p>`;
@@ -26,7 +26,7 @@ function winMessage(cubeA, cubeB, bet) {
 }
 
 // Текст при проигрыше
-function loseMessage(cubeA, cubeB, bet) {
+function loseMessage(cubeA, cubeB, bet, cash) {
   const walletTxt = `Ваш баланс: <span class="value">${cash}$</span>`;
   const messageTxt = `<p>На кубиках: <span class="value">${cubeA}, ${cubeB}</span></p>
      <p>Ваша ставка в <span class="value">${bet}$</span> не сыграла</p>`;
@@ -68,7 +68,7 @@ function pointMessage(cubeA, cubeB, bet) {
   };
 }
 
-function errorMessage() {
+function errorMessage(cash) {
   const walletTxt = `Ваш баланс: <span class="value">${cash}$</span>`;
   const messageTxt = '<p>Неверное значение!</p>';
   const buttonTxt = 'Бросить кубики';
@@ -79,3 +79,12 @@ function errorMessage() {
     button: buttonTxt,
   };
 }
+
+export default {
+  baseMessage,
+  winMessage,
+  loseMessage,
+  pointStartMessage,
+  pointMessage,
+  errorMessage,
+};
