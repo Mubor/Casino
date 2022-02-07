@@ -12,7 +12,7 @@ function baseMessage(cash) {
 }
 
 // Текст формы при выиграше
-function winMessage(cubeA, cubeB, bet, cash) {
+function winMessage({ cubeA, cubeB, bet, cash }) {
   const walletTxt = `Ваш баланс: <span class="value">${cash}$</span>`;
   const messageTxt = `<p>На кубиках: <span class="value">${cubeA}, ${cubeB}</span></p>
      <p>Вы выиграли, и получаете <span class="value">${bet * 2}$</span></p>`;
@@ -26,7 +26,7 @@ function winMessage(cubeA, cubeB, bet, cash) {
 }
 
 // Текст при проигрыше
-function loseMessage(cubeA, cubeB, bet, cash) {
+function loseMessage({ cubeA, cubeB, bet, cash }) {
   const walletTxt = `Ваш баланс: <span class="value">${cash}$</span>`;
   const messageTxt = `<p>На кубиках: <span class="value">${cubeA}, ${cubeB}</span></p>
      <p>Ваша ставка в <span class="value">${bet}$</span> не сыграла</p>`;
@@ -40,7 +40,7 @@ function loseMessage(cubeA, cubeB, bet, cash) {
 }
 
 // Текст при выпадании поинта (один раз)
-function pointStartMessage(cubeA, cubeB, bet) {
+function pointStartMessage({ cubeA, cubeB, bet }) {
   const walletTxt = `Ставка: <span class="value">${bet}$</span>`;
   const messageTxt = `<p>На кубиках: <span class="value">${cubeA}, ${cubeB}</span></p>
     <p>Твое очко - <span class="value">${cubeA + cubeB}</span><br>
@@ -55,7 +55,7 @@ function pointStartMessage(cubeA, cubeB, bet) {
 }
 
 // Текст при поинт-игре
-function pointMessage(cubeA, cubeB, bet) {
+function pointMessage({ cubeA, cubeB, bet }) {
   const walletTxt = `Ставка: <span class="value">${bet}$</span>`;
   const messageTxt = `<p>На кубиках: <span class="value">${cubeA}, ${cubeB}</span></p>
     <p>Продолжай бросать</p>`;

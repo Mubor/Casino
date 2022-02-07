@@ -1,11 +1,7 @@
-export default function updateForm(messagesObj, isFieldVisibile) {
+export default function updateForm(messagesObj, isFieldVisibile ) {
   const field = document.getElementById('bet');
 
-  if (isFieldVisibile) {
-    field.style.display = 'unset';
-  } else {
-    field.style.display = 'none';
-  }
+  field.style.display = isFieldVisibile ? 'unset' : 'none';
 
   field.innerHTML = '';
   document.getElementById('wallet').innerHTML = messagesObj.wallet;

@@ -20,21 +20,21 @@ const {
 const { primaryGameHandler, pointGameHandler } = gameHandlers;
 
 // Обработка результата подбрасывания (обновление DOM)
-function generalHandler(decision, cubeA, cubeB, bet) {
+function generalHandler({ decision, cubeA, cubeB, bet }) {
   if (decision === 'win') {
     currentGameStage = 'win';
     tempCash = cash + bet * 2;
-    updateForm(winMessage(cubeA, cubeB, bet, cash), false);
+    updateForm(winMessage({ cubeA, cubeB, bet, cash }), false);
   } else if (decision === 'lose') {
     currentGameStage = 'lose';
     tempCash = cash - bet;
-    updateForm(loseMessage(cubeA, cubeB, bet, cash), false);
+    updateForm(loseMessage({ cubeA, cubeB, bet, cash }), false);
   } else if (decision === 'point') {
     currentGameStage = 'point';
     point = cubeA + cubeB;
-    updateForm(pointStartMessage(cubeA, cubeB, bet), false);
+    updateForm(pointStartMessage({ cubeA, cubeB, bet }), false);
   } else {
-    updateForm(pointMessage(cubeA, cubeB, bet), false);
+    updateForm(pointMessage({ cubeA, cubeB, bet }), false);
   }
 }
 
@@ -48,10 +48,10 @@ function clickHandler() {
     updateForm(errorMessage(cash), true);
   } else if (currentGameStage === 'new') {
     decision = primaryGameHandler(cubeA, cubeB); // получаем результат обычной игры
-    generalHandler(decision, cubeA, cubeB, bet); // обновляем DOM
+    generalHandler({ decision, cubeA, cubeB, bet }); // обновляем DOM
   } else if (currentGameStage === 'point') {
     decision = pointGameHandler(cubeA, cubeB, point); // получаем результат поинт-игры
-    generalHandler(decision, cubeA, cubeB, bet); // обновляем DOM
+    generalHandler({ decision, cubeA, cubeB, bet }); // обновляем DOM
   } else {
     currentGameStage = 'new';
     cash = tempCash;
