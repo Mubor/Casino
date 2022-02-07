@@ -1,4 +1,4 @@
-w// Обработчик обычной игры
+// Обработчик обычной игры
 // eslint-disable-next-line no-unused-vars
 function primaryGameHandler(cubeA, cubeB) {
   const sum = cubeA + cubeB;
